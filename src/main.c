@@ -24,6 +24,10 @@ static int viewport_h = VIEWPORT_H;
 Camera camera = { 0 };
 Model model = { 0 };
 Shader shader = { 0 };
+Vector3 torque = { 0 };
+
+static void update() {
+}
 
 static void draw() {
   ClearBackground(BLACK);
@@ -34,11 +38,32 @@ static void draw() {
 		DrawModel(model, (Vector3){ 0, 0, 0}, 1.0f, WHITE);
 	EndMode3D();
 
-  DrawText("tynbox", 16, 16, 20, WHITE);
-  DrawText("tynbox", viewport_w - 16 - 72, viewport_h - 16 - 20, 20, WHITE);
+	Color color = WHITE;
+	if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+		color = RED;
+	}
+  DrawText("Left Mouse Button.", 16, 16, 20, color);
+  DrawText("tynbox", viewport_w - 16 - 72, viewport_h - 16 - 20, 20, color);
 }
 
-static void inputs() {}
+static void inputs() {
+	if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+		float factor = 1e-4;
+		Vector2 ppos = GetMouseDelta();
+		// conversion from 2d xz flipped
+		torque.y += ppos.x * factor;
+		torque.x += ppos.y * factor;
+	}
+
+  // do not apply this transform if you want to rotate in gloval coorditanes
+	//Vector3 t =  Vector3Transform(torque, model.transform);
+	Vector3 t = torque;
+
+	Matrix mx = MatrixRotateX(t.x);
+	Matrix my = MatrixRotateY(t.y);
+	Matrix m1 = MatrixMultiply(mx, my);
+	model.transform = MatrixMultiply(model.transform, m1);
+}
 
 // --- flow
 
@@ -57,7 +82,7 @@ static void init() {
 	SetShaderValue(shader, ambientLoc, (float[4]){ 0.1f, 0.1f, 0.1f, 1.0f }, SHADER_UNIFORM_VEC4);
 	CreateLight(LIGHT_DIRECTIONAL, (Vector3){ -2, 1, -2 }, Vector3Zero(), WHITE, shader);
 
-	model = LoadModelFromMesh(GenMeshCube(1, 2, 1));
+	model = LoadModelFromMesh(GenMeshCube(1, 1, 2));
 	model.materials[0].shader = shader;
 
 	camera.position = (Vector3){ 0.0f, 10.0f, 10.0f };
@@ -106,6 +131,7 @@ void step(void) {
   equilizer();
 
   inputs();
+	update();
 
   BeginDrawing();
   draw();
