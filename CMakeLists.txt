@@ -32,6 +32,8 @@ if (${IS_DEBUG_BUILD})
     add_compile_definitions(__DEBUG__)
 endif ()
 
+find_package(OpenGL REQUIRED)
+
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "src/*.c")
 add_executable(${PROJECT_NAME} ${sources})
