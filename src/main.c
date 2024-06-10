@@ -290,7 +290,7 @@ static void inputs_sui_buttons() {
 
 		sui_btn_a_pressed = sui_btn_a_pressed || collide_a;
 		sui_btn_b_pressed = sui_btn_b_pressed || collide_b;
-		if (!sui_screen_pressed && !collide_a && !collide_b) {
+		if (!sui_screen_pressed && !(collide_a || collide_b)) {
 			sui_screen_pressed = true;
 			if (had_screen_press) {
 				input_delta = Vector2Subtract(input_pos, tp.pos);

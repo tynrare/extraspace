@@ -16,7 +16,7 @@ var Module = typeof Module != 'undefined' ? Module : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmphihsprt1.js
+// include: /tmp/tmpy864q1nx.js
 
   if (!Module.expectedDataFileDownloads) {
     Module.expectedDataFileDownloads = 0;
@@ -196,7 +196,7 @@ Module['FS_createPath']("/res", "pic", true, true);
 
   })();
 
-// end include: /tmp/tmphihsprt1.js
+// end include: /tmp/tmpy864q1nx.js
 
 
 // Sometimes an existing Module object exists with properties
