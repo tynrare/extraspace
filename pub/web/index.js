@@ -16,7 +16,7 @@ var Module = typeof Module != 'undefined' ? Module : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp0tbbayq_.js
+// include: /tmp/tmphihsprt1.js
 
   if (!Module.expectedDataFileDownloads) {
     Module.expectedDataFileDownloads = 0;
@@ -124,6 +124,7 @@ var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
         if (!check) throw msg + new Error().stack;
       }
 Module['FS_createPath']("/", "res", true, true);
+Module['FS_createPath']("/res", "pic", true, true);
 
       /** @constructor */
       function DataRequest(start, end, audio) {
@@ -191,11 +192,11 @@ Module['FS_createPath']("/", "res", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/res/lighting.fs", "start": 0, "end": 1921}, {"filename": "/res/lighting.vs", "start": 1921, "end": 3499}, {"filename": "/res/tex0.png", "start": 3499, "end": 45565}, {"filename": "/res/tex1.png", "start": 45565, "end": 46520}], "remote_package_size": 46520});
+    loadPackage({"files": [{"filename": "/res/lighting.fs", "start": 0, "end": 1921}, {"filename": "/res/lighting.vs", "start": 1921, "end": 3499}, {"filename": "/res/pic/forwards.png", "start": 3499, "end": 23490}, {"filename": "/res/pic/rotate.png", "start": 23490, "end": 52132}, {"filename": "/res/tex0.png", "start": 52132, "end": 94198}, {"filename": "/res/tex1.png", "start": 94198, "end": 95153}], "remote_package_size": 95153});
 
   })();
 
-// end include: /tmp/tmp0tbbayq_.js
+// end include: /tmp/tmphihsprt1.js
 
 
 // Sometimes an existing Module object exists with properties
@@ -833,40 +834,40 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  25680: () => { if (document.fullscreenElement) return 1; },  
- 25726: () => { return document.getElementById('canvas').width; },  
- 25778: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 25846: () => { document.exitFullscreen(); },  
- 25873: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
- 25946: () => { if (document.fullscreenElement) return 1; },  
- 25992: () => { return document.getElementById('canvas').width; },  
- 26044: () => { return screen.width; },  
- 26069: () => { document.exitFullscreen(); },  
- 26096: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
- 26229: () => { if (document.fullscreenElement) return 1; },  
- 26275: () => { return document.getElementById('canvas').width; },  
- 26327: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 26395: () => { if (document.fullscreenElement) return 1; },  
- 26441: () => { return document.getElementById('canvas').width; },  
- 26493: () => { return screen.width; },  
- 26518: () => { if (document.fullscreenElement) return 1; },  
- 26564: () => { return document.getElementById('canvas').width; },  
- 26616: () => { return screen.width; },  
- 26641: () => { document.exitFullscreen(); },  
- 26668: () => { if (document.fullscreenElement) return 1; },  
- 26714: () => { return document.getElementById('canvas').width; },  
- 26766: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 26834: () => { document.exitFullscreen(); },  
- 26861: () => { return screen.width; },  
- 26886: () => { return screen.height; },  
- 26912: () => { return window.screenX; },  
- 26939: () => { return window.screenY; },  
- 26966: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
- 27019: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
- 27090: () => { document.getElementById('canvas').style.cursor = 'none'; },  
- 27147: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
- 27218: () => { if (document.fullscreenElement) return 1; },  
- 27264: () => { if (document.pointerLockElement) return 1; }
+  25712: () => { if (document.fullscreenElement) return 1; },  
+ 25758: () => { return document.getElementById('canvas').width; },  
+ 25810: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 25878: () => { document.exitFullscreen(); },  
+ 25905: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
+ 25978: () => { if (document.fullscreenElement) return 1; },  
+ 26024: () => { return document.getElementById('canvas').width; },  
+ 26076: () => { return screen.width; },  
+ 26101: () => { document.exitFullscreen(); },  
+ 26128: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
+ 26261: () => { if (document.fullscreenElement) return 1; },  
+ 26307: () => { return document.getElementById('canvas').width; },  
+ 26359: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 26427: () => { if (document.fullscreenElement) return 1; },  
+ 26473: () => { return document.getElementById('canvas').width; },  
+ 26525: () => { return screen.width; },  
+ 26550: () => { if (document.fullscreenElement) return 1; },  
+ 26596: () => { return document.getElementById('canvas').width; },  
+ 26648: () => { return screen.width; },  
+ 26673: () => { document.exitFullscreen(); },  
+ 26700: () => { if (document.fullscreenElement) return 1; },  
+ 26746: () => { return document.getElementById('canvas').width; },  
+ 26798: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 26866: () => { document.exitFullscreen(); },  
+ 26893: () => { return screen.width; },  
+ 26918: () => { return screen.height; },  
+ 26944: () => { return window.screenX; },  
+ 26971: () => { return window.screenY; },  
+ 26998: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
+ 27051: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
+ 27122: () => { document.getElementById('canvas').style.cursor = 'none'; },  
+ 27179: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
+ 27250: () => { if (document.fullscreenElement) return 1; },  
+ 27296: () => { if (document.pointerLockElement) return 1; }
 };
 function GetWindowInnerWidth() { return window.innerWidth; }
 function GetWindowInnerHeight() { return window.innerHeight; }
@@ -9630,8 +9631,8 @@ var _asyncify_start_unwind = (a0) => (_asyncify_start_unwind = wasmExports['asyn
 var _asyncify_stop_unwind = () => (_asyncify_stop_unwind = wasmExports['asyncify_stop_unwind'])();
 var _asyncify_start_rewind = (a0) => (_asyncify_start_rewind = wasmExports['asyncify_start_rewind'])(a0);
 var _asyncify_stop_rewind = () => (_asyncify_stop_rewind = wasmExports['asyncify_stop_rewind'])();
-var ___start_em_js = Module['___start_em_js'] = 27311;
-var ___stop_em_js = Module['___stop_em_js'] = 27384;
+var ___start_em_js = Module['___start_em_js'] = 27343;
+var ___stop_em_js = Module['___stop_em_js'] = 27416;
 
 // include: postamble.js
 // === Auto-generated postamble setup entry stuff ===
