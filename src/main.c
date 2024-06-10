@@ -18,6 +18,8 @@ bool active = false;
 
 static const int VIEWPORT_W = 0x320;
 static const int VIEWPORT_H = 0x1c2;
+#define MAX_TOUCH_POINTS 10
+Vector2 touchPositions[MAX_TOUCH_POINTS] = { 0 };
 
 static int viewport_w = VIEWPORT_W;
 static int viewport_h = VIEWPORT_H;
@@ -111,6 +113,22 @@ static void draw_help() {
 	}
 }
 
+static bool sui_btn_a_pressed = false;
+
+#define SUI_BTN_A (Rectangle){ 16, viewport_h - 16 - 64, 64, 64 }
+
+static void draw_inputs() {
+	DrawRectangleLinesEx(SUI_BTN_A, 16, sui_btn_a_pressed ? RED : WHITE);
+
+	int tCount = GetTouchPointCount();
+	if(tCount > MAX_TOUCH_POINTS) tCount = MAX_TOUCH_POINTS;
+	for (int i = 0; i < tCount; ++i)  {
+		Vector2 tp = touchPositions[i];
+		DrawCircle(tp.x, tp.y, 24, Fade(WHITE, 0.4));
+		DrawCircle(tp.x, tp.y, 20, Fade(BLACK, 0.1));
+	}
+}
+
 
 static void draw() {
   ClearBackground(BLACK);
@@ -128,6 +146,7 @@ static void draw() {
 	EndMode3D();
 
 	draw_help();
+	draw_inputs();
 }
 
 static void update_pawn() {
@@ -186,22 +205,43 @@ static void inputs_pawn() {
 	inputs_pawn_acceleration();
 }
 
+static void inputs_sui_buttons() {
+	int tCount = GetTouchPointCount();
+	if(tCount > MAX_TOUCH_POINTS) tCount = MAX_TOUCH_POINTS;
+
+	sui_btn_a_pressed = false;
+
+	for (int i = 0; i < tCount; ++i)  {
+		Vector2 tp = touchPositions[i];
+		sui_btn_a_pressed = sui_btn_a_pressed || CheckCollisionPointRec(tp, SUI_BTN_A);
+	}
+}
+
 static void inputs() {
+	int tCount = GetTouchPointCount();
+	// Clamp touch points available ( set the maximum touch points allowed )
+	if(tCount > MAX_TOUCH_POINTS) tCount = MAX_TOUCH_POINTS;
+	// Get touch points positions
+	
+	for (int i = 0; i < tCount; ++i) touchPositions[i] = GetTouchPosition(i);
+
+	inputs_sui_buttons();
+
 	if (IsKeyPressed(KEY_H)) {
 		_draw_help_enabled = !_draw_help_enabled;
 	}
 
-	if (IsKeyPressed(KEY_SPACE)) {
-		_pawn_torque_input_enabled = !_pawn_torque_input_enabled;
-		if (_pawn_torque_input_enabled) {
-			DisableCursor();
-		} else {
-			EnableCursor();
-		}
-	}
-
+	_pawn_torque_input_enabled = IsKeyDown(KEY_SPACE) || sui_btn_a_pressed;
 	_pawn_acceleration_input_enabled = IsMouseButtonDown(MOUSE_BUTTON_LEFT);
 	_pawn_torque_input_alt_axis_enabled = IsMouseButtonDown(MOUSE_BUTTON_RIGHT);
+
+	if (_pawn_torque_input_enabled && !IsCursorHidden()) {
+		HideCursor();
+		DisableCursor();
+	} else if (!_pawn_torque_input_enabled && IsCursorHidden()){
+		ShowCursor();
+		EnableCursor();
+	}
 
 	inputs_pawn();
 }
@@ -278,12 +318,12 @@ static void equilizer() {
 void step(void) {
   equilizer();
 
-  inputs();
-	update();
-
   BeginDrawing();
   draw();
   EndDrawing();
+
+  inputs();
+	update();
 }
 
 void loop() {

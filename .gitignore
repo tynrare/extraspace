@@ -1,5 +1,6 @@
 builds
 builds-debug
+pub/.vite
 build
 temp
 main.exe
