@@ -16,7 +16,7 @@ var Module = typeof Module != 'undefined' ? Module : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpygs8ru0j.js
+// include: /tmp/tmp0tbbayq_.js
 
   if (!Module.expectedDataFileDownloads) {
     Module.expectedDataFileDownloads = 0;
@@ -195,7 +195,7 @@ Module['FS_createPath']("/", "res", true, true);
 
   })();
 
-// end include: /tmp/tmpygs8ru0j.js
+// end include: /tmp/tmp0tbbayq_.js
 
 
 // Sometimes an existing Module object exists with properties
@@ -833,40 +833,40 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  25664: () => { if (document.fullscreenElement) return 1; },  
- 25710: () => { return document.getElementById('canvas').width; },  
- 25762: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 25830: () => { document.exitFullscreen(); },  
- 25857: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
- 25930: () => { if (document.fullscreenElement) return 1; },  
- 25976: () => { return document.getElementById('canvas').width; },  
- 26028: () => { return screen.width; },  
- 26053: () => { document.exitFullscreen(); },  
- 26080: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
- 26213: () => { if (document.fullscreenElement) return 1; },  
- 26259: () => { return document.getElementById('canvas').width; },  
- 26311: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 26379: () => { if (document.fullscreenElement) return 1; },  
- 26425: () => { return document.getElementById('canvas').width; },  
- 26477: () => { return screen.width; },  
- 26502: () => { if (document.fullscreenElement) return 1; },  
- 26548: () => { return document.getElementById('canvas').width; },  
- 26600: () => { return screen.width; },  
- 26625: () => { document.exitFullscreen(); },  
- 26652: () => { if (document.fullscreenElement) return 1; },  
- 26698: () => { return document.getElementById('canvas').width; },  
- 26750: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 26818: () => { document.exitFullscreen(); },  
- 26845: () => { return screen.width; },  
- 26870: () => { return screen.height; },  
- 26896: () => { return window.screenX; },  
- 26923: () => { return window.screenY; },  
- 26950: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
- 27003: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
- 27074: () => { document.getElementById('canvas').style.cursor = 'none'; },  
- 27131: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
- 27202: () => { if (document.fullscreenElement) return 1; },  
- 27248: () => { if (document.pointerLockElement) return 1; }
+  25680: () => { if (document.fullscreenElement) return 1; },  
+ 25726: () => { return document.getElementById('canvas').width; },  
+ 25778: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 25846: () => { document.exitFullscreen(); },  
+ 25873: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
+ 25946: () => { if (document.fullscreenElement) return 1; },  
+ 25992: () => { return document.getElementById('canvas').width; },  
+ 26044: () => { return screen.width; },  
+ 26069: () => { document.exitFullscreen(); },  
+ 26096: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
+ 26229: () => { if (document.fullscreenElement) return 1; },  
+ 26275: () => { return document.getElementById('canvas').width; },  
+ 26327: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 26395: () => { if (document.fullscreenElement) return 1; },  
+ 26441: () => { return document.getElementById('canvas').width; },  
+ 26493: () => { return screen.width; },  
+ 26518: () => { if (document.fullscreenElement) return 1; },  
+ 26564: () => { return document.getElementById('canvas').width; },  
+ 26616: () => { return screen.width; },  
+ 26641: () => { document.exitFullscreen(); },  
+ 26668: () => { if (document.fullscreenElement) return 1; },  
+ 26714: () => { return document.getElementById('canvas').width; },  
+ 26766: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 26834: () => { document.exitFullscreen(); },  
+ 26861: () => { return screen.width; },  
+ 26886: () => { return screen.height; },  
+ 26912: () => { return window.screenX; },  
+ 26939: () => { return window.screenY; },  
+ 26966: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
+ 27019: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
+ 27090: () => { document.getElementById('canvas').style.cursor = 'none'; },  
+ 27147: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
+ 27218: () => { if (document.fullscreenElement) return 1; },  
+ 27264: () => { if (document.pointerLockElement) return 1; }
 };
 function GetWindowInnerWidth() { return window.innerWidth; }
 function GetWindowInnerHeight() { return window.innerHeight; }
@@ -9630,8 +9630,8 @@ var _asyncify_start_unwind = (a0) => (_asyncify_start_unwind = wasmExports['asyn
 var _asyncify_stop_unwind = () => (_asyncify_stop_unwind = wasmExports['asyncify_stop_unwind'])();
 var _asyncify_start_rewind = (a0) => (_asyncify_start_rewind = wasmExports['asyncify_start_rewind'])(a0);
 var _asyncify_stop_rewind = () => (_asyncify_stop_rewind = wasmExports['asyncify_stop_rewind'])();
-var ___start_em_js = Module['___start_em_js'] = 27295;
-var ___stop_em_js = Module['___stop_em_js'] = 27368;
+var ___start_em_js = Module['___start_em_js'] = 27311;
+var ___stop_em_js = Module['___stop_em_js'] = 27384;
 
 // include: postamble.js
 // === Auto-generated postamble setup entry stuff ===

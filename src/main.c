@@ -124,8 +124,11 @@ static void draw_inputs() {
 	if(tCount > MAX_TOUCH_POINTS) tCount = MAX_TOUCH_POINTS;
 	for (int i = 0; i < tCount; ++i)  {
 		Vector2 tp = touchPositions[i];
-		DrawCircle(tp.x, tp.y, 24, Fade(WHITE, 0.4));
-		DrawCircle(tp.x, tp.y, 20, Fade(BLACK, 0.1));
+		if ((tp.x > 0) && (tp.y > 0)) {
+			DrawCircle(tp.x, tp.y, 24, Fade(WHITE, 0.4));
+			DrawCircle(tp.x, tp.y, 20, Fade(BLACK, 0.1));
+			DrawText(TextFormat("%d", i), (int)touchPositions[i].x - 10, (int)touchPositions[i].y - 70, 40, BLACK);
+		}
 	}
 }
 
