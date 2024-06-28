@@ -339,8 +339,10 @@ static void inputs() {
 	}
 
 	if (mode_mouse) {
-		input_delta = GetMouseDelta();
-		input_pos = GetMousePosition();
+		//input_delta = GetMouseDelta(); // does not work in web
+		Vector2 p = GetMousePosition();
+		input_delta = Vector2Subtract(p, input_pos);
+		input_pos = p;
 	} else {
 		// updated in inputs_sui_buttons
 	}
